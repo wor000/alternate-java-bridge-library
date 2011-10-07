@@ -1,0 +1,12 @@
+#summary Basic installation of the library
+
+= Installation =
+
+
+  # Download the zip file, and unzip. 
+  # Create your project in eclipse.
+  # Navigate to your project's folder (you should see /src, /res, /assets, etc)
+  # Create a folder called libs here.
+  # Copy the AlternateJavaBridgelib.jar file you unzipped earlier into the /libs directory.
+  # In Eclipse, click on your project's directory in the package explorer window, and hit F5 to refresh the directory
+  # Open the libs folder, then right click on the AltBridge jar file, and select Build Path > Add To Build Path. You're now ready to start working on your project using the library.
