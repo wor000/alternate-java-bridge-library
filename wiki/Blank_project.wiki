@@ -64,7 +64,7 @@ public class Screen1 extends Form implements HandlesEventDispatching {
  * component - The actual component which has raised the event
  * id - The id is the first string in your event declaration. In this case "Eventnamehere". You rarely will have to do anything with this.
  * eventName - This is the name of the event which has been raised - ex "Click", "Initialize", "CollidedWith"
- * args - This is an object array of optional parameters. Depending on the component, and the event, you will may or may not need to use this. A good example of an event which doesnt send arguments is the "Click" event raised by buttons. However, the "Touched" event also sends back the x and y location of the touch. The x would be the first index of the array, and the y would be the second (args[0] is x, args[1] is y).
+ * args - This is an object array of optional parameters. Depending on the component, and the event, you will may or may not need to use this. A good example of an event which doesnt send arguments is the "Click" event raised by buttons. However, the "Touched" event also sends back the x and y location of the touch. The x would be the first index of the array, and the y would be the second ({{{args[0]}}} is x, {{{args[1]}}} is y).
 You will have to convert from an object to a double, or integer (see Convert).
 
 === Catching events ===
