@@ -8,21 +8,20 @@
 == Usage ==
 
  * Integer :
-     int temp = Convert.Int(object);
+     {{{int temp = Convert.Int(object);}}}
 
  * String :
-     String temp = Convert.string(object);
+     {{{String temp = Convert.string(object);}}}
      ** This one is kind of unnecessary. You could simply do object.toString() to achieve the same result without using the Convert class.
 
  * Long :
-     Long temp = Convert.Long(object);
+     {{{Long temp = Convert.Long(object);}}}
 
  * Double :
-     Double temp = Convert.Double(object);
+     {{{Double temp = Convert.Double(object);}}}
 
  * Boolean :
-     boolean temp = Convert.Boolean(object);
+    {{{boolean temp = Convert.Boolean(object);}}}
 
  * Float :
-     float temp = Convert.Float(object);
-
+     {{{float temp = Convert.Float(object);}}}
