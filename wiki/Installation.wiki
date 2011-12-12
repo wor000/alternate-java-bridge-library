@@ -20,5 +20,6 @@
   # Click the Archive button
   # Navigate to the zip file, and select it, then hit OK
   # Click next, accept the license, and the plugin will install (eclipse will want to restart after installation is finished)
+  # Open a new project by selecting New > AltBridge Android Project
 
   Note: If upgrading, follow the same procedure, eclipse will automatically perform an upgrade (it will let you know this as well)
