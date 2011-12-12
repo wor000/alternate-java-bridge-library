@@ -74,7 +74,7 @@ You will have to convert from an object to a double, or integer (see Convert).
  Here is where you can run anything upon the startup of Screen1, when the screen itself has been initialized (upon initial startup of an activity, the screen size will be represented by 0,0. The Initialize event is called once the screen size has actually been determined.)
 
 === Note ===
-  When using version 1.9 and up, you must also have the following line in the define() method [make sure it's the first line]:
+  When using version 1.9 and up, you must also have the following line in the define() method (make sure it's the first line):
 {{{
 setContentView(R.layout.main);
 }}}
