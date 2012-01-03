@@ -1,5 +1,27 @@
 #summary Basic installation of the library
 
+= Installation (All versions 1.9 and up) =
+
+  # Download the zip file (Do not unzip)
+  # In Eclipse, within the Help pulldown menu, select Install New Software
+http://dl.dropbox.com/u/8949112/altbridge/step1.png
+  # Click the Add button
+  # Click the Archive button
+http://dl.dropbox.com/u/8949112/altbridge/step2.png
+  # Navigate to the zip file, and select it, then hit OK
+  # Check the AltBridge plugin
+http://dl.dropbox.com/u/8949112/altbridge/step3.png
+  # Click next, accept the license, and the plugin will install (eclipse will want to restart after installation is finished)
+  # Open a new project by selecting New > Project > AltBridge Android Project
+
+  Note: If upgrading, follow the same procedure, eclipse will automatically perform an upgrade (it will let you know this as well)
+
+
+
+
+
+The below is deprecated, but if you have an older version, this is how you install it.
+
 = Installation (All versions BELOW 1.9) =
 
 
@@ -10,16 +32,3 @@
   # Copy the AlternateJavaBridgelib.jar file you unzipped earlier into the /libs directory.
   # In Eclipse, click on your project's directory in the package explorer window, and hit F5 to refresh the directory
   # Open the libs folder, then right click on the AltBridge jar file, and select Build Path > Add To Build Path. You're now ready to start working on your project using the library.
-
-
-= Installation (All versions 1.9 and up) =
-
-  # Download the zip file (Do not unzip)
-  # In Eclipse, within the Help pulldown menu, select Install New Software
-  # Click the Add button
-  # Click the Archive button
-  # Navigate to the zip file, and select it, then hit OK
-  # Click next, accept the license, and the plugin will install (eclipse will want to restart after installation is finished)
-  # Open a new project by selecting New > Project > AltBridge Android Project
-
-  Note: If upgrading, follow the same procedure, eclipse will automatically perform an upgrade (it will let you know this as well)
