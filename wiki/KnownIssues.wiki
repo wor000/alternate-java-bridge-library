@@ -1,0 +1,6 @@
+#summary Currently known Issues
+
+= Known Issues =
+
+  # In the GLE (graphical layout editor), the custom & library views section (under palette) does not redraw the background, so artifacts are left. This is a bug in ADT, and seems to affect Windows, and Linux, but not Mac. http://dl.dropbox.com/u/8949112/altbridge/GLEartifacts.png
+  #2 While you may see AB_DrawerSlider there, it's not currently working. You can drop it in your UI, but it won't display there properly, and probably won't work through code yet.
