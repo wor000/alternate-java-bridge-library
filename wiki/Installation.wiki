@@ -8,6 +8,8 @@
   * Requires at least version 3.7 of Eclipse (Indigo)
   * Platform independent (Windows, Linux, Mac)
 
+=== Procedure ===
+
   # Download the zip file (Do not unzip)
   # In Eclipse, within the Help pulldown menu, select Install New Software
 http://dl.dropbox.com/u/8949112/altbridge/step1.png
