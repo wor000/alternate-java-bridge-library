@@ -4,7 +4,7 @@
 
 === Notes ===
 
-  * Requires at least version 16.0.0 of ADT
+  * Requires at least version 16.0.1 of ADT
   * Requires at least version 3.7 of Eclipse (Indigo)
   * Platform independent (Windows, Linux, Mac)
 
