@@ -100,7 +100,11 @@ button.AnimationStartOffset(0);
 // strung together. This allows you to do something in the middle of 
 // the animation (think of a card turning over). The event thrown is
 // "AnimationMiddle".
-button.RotateStartEndDegrees(0, 90, 270, 360);
+button.AnimationFlipDegrees(0, 90, 270, 360);
+
+// This is only used for the Flip animation. It sets how far back on
+// the Z axis the animation is run.
+button.AnimationDepth(100);
 }}}
 
 Finally, to animate a visible component, 
