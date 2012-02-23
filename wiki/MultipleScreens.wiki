@@ -4,6 +4,8 @@
 
 Working with multiple screens is actually pretty easy. Each "screen" is simply a Form. So, if you want another screen, create a new Form.
 
+*Note: In order for this new form to run, you must declare it in your Android Manifest. If you don't, you'll get a Force Close when you try to start it.*
+
 == How Do I start the next screen? ==
 
 Let's say you have Splash, and MainMenu Forms created. Within the Splash file, you use an intent to start the mainmenu like so:
@@ -14,6 +16,8 @@ startActivity(intent);
 }}}
 
 That's it. If you don't want the splash screen to stay in memory, add finish(); after the startactivity line.
+
+You can also run methods after running startActivity that will change the animation between Forms (fade in/out, zoom in/out, rotate in/out - see the Animation Wiki for more info).
 
 == How do I pass data to another Form upon loading? ==
 
