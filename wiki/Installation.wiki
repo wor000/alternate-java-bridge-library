@@ -22,7 +22,7 @@ http://dl.dropbox.com/u/8949112/altbridge/step3.png
   # Click next, accept the license, and the plugin will install (eclipse will want to restart after installation is finished)
   # Open a new project by selecting New > Project > AltBridge Android Project
 
-  Note: If upgrading, follow the same procedure, eclipse will automatically perform an upgrade (it will let you know this as well)
+  Note: If upgrading, follow the same procedure, eclipse will automatically perform an upgrade (it will let you know this as well). Also, see the UpdatingProjects Wiki for more information.
 
 
 
