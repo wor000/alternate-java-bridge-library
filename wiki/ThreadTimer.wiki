@@ -2,9 +2,7 @@
 
 = ThreadTimer =
 
- This is useful if you want to process a lot of data in the background
-as efficiently as possible (the clock component runs in the application's
-main UI thread, which can slow things down depending on what you are doing).
+ This is useful if you want to process a lot of data in the background as efficiently as possible (the clock component runs in the application's main UI thread, which can slow things down depending on what you are doing).
 
 {{{
 private ThreadTimer timer;
@@ -44,3 +42,8 @@ if (component.equals(timer) && eventName.equals("Timer")) {
     return true;
  }
 }}}
+
+= Important Info =
+
+ * A seperate thread cannot touch the UI in any way. 
+ * It is up to you to make sure that threads don't try to access the same data at the same time. The SimpleSQL component is thread safe, but this doesn't mean you can't run into issues (the app will just freeze, rather than crash).
