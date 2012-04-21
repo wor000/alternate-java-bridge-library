@@ -27,4 +27,4 @@ wUtil.Text(this, R.id.textView1, "Blah blah blah");
 }}}
 
 For the Image method to work, you have to place an ImageView into the widget's layout file (which will be in the /res/layout folder with your
-widget's name suffixed by `_`layout. 
+widget's name suffixed by `_`layout. Likewise, for the Text method to work, you have to place a TextView into the widget's layout.
