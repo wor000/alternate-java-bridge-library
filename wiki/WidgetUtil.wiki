@@ -1,0 +1,30 @@
+#summary A utility class to help with modifying app widgets.
+
+= WidgetUtil =
+
+
+== Usage ==
+
+The WidgetUtil class is designed to be instantiated once per widget. If you need to modify another widget, instantiate another instance of WidgetUtil for it.
+
+{{{
+private WidgetUtil wUtil;
+
+// Instantiate the util passing the class name of the widget to control
+// and also the layout resource of the widget
+wUtil = new WidgetUtil(TestWidget.class, R.layout.testwidget_layout);
+
+// This method sets the imageview's image to the testimg file in the
+// drawable folder. This method is used the same exact way when used
+// in a Form, or FormService. 
+wUtil.Image(this, R.id.imageView1, R.drawable.testimg);
+
+// Set the text of a textview in the widget. Like the Image method,
+// this is used the same way in a Form, and FormService.
+wUtil.Text(this, R.id.textView1, "Blah blah blah");
+ 
+ 
+}}}
+
+For the Image method to work, you have to place an ImageView into the widget's layout file (which will be in the /res/layout folder with your
+widget's name suffixed by `_`layout. 
