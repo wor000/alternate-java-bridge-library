@@ -162,6 +162,14 @@ Event thrown when a service is started (or restarted when already running)
 This event is signalled when the device's orientation has changed. It reports the new values of yaw, pich, and roll as floats.
   * OrientationSensor
 
+== "Response" ==
+
+Event thrown when a response has been received from a server. 
+
+  * DropBoxClient (This returns a boolean with the event)
+  * FTClient (This returns the response as a string with this event)
+
+
 == "ScreenOrientationChanged" ==
 
 Indicates a change in the screen orientation.
