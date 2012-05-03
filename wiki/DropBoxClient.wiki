@@ -32,3 +32,22 @@ dbClient.DownloadFile("filepathindropbox", file.getAbsolutePath(), null, true);
 }}}
 
 Both of the last two methods above throw the Response event, with a boolean signifying if the transer completed successfully or not. An error is also output to the logcat.
+
+== Manifest Modification ==
+
+Dropbox also requires that you also add the following to your project's AndroidManifest.xml file. Make sure to change the YOUR_APP_KEY_HERE with your DropBox app key.
+
+{{{
+<activity
+      android:name="com.dropbox.client2.android.AuthActivity"
+      android:launchMode="singleTask"
+      android:configChanges="orientation|keyboard">
+      <intent-filter>
+        <!-- Change this to be db- followed by your app key -->
+        <data android:scheme="db-YOUR_APP_KEY_HERE" />        
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+    </activity>
+}}}
