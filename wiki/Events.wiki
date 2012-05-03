@@ -110,6 +110,12 @@ Indicates an error has occured. This also returns the errornumber, and error mes
   * Form
   * FormService
 
+== "FormServiceMessage" ==
+
+Indicates that a message has been sent to the Form from a FormService. The data is passed via a string.
+
+  * Form (Although the message is sent by the FormService, this event fires in the currently active form.)
+
 == "GotFocus" ==
   
 Indicates the cursor has now moved over the component.
