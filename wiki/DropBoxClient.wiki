@@ -2,7 +2,7 @@
 
 = DropBoxClient =
 
-*The AltBridge does NOT contain the dropbox jar file. You will need to get this from dropbox.com, and place it in your project's /libs folder. You will also need the json_simple jar file which can be downloaded here: http://code.google.com/p/json-simple/downloads/list *
+*The AltBridge does NOT contain the dropbox jar file. You will need to get this from dropbox.com, and place it in your project's /libs folder. You will also need the json_simple jar file (json-simple-1.1.1.jar, or json-simple-1.1.jar will do) which can be downloaded here: http://code.google.com/p/json-simple/downloads/list *
 
 {{{
 
