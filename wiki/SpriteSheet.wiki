@@ -76,5 +76,20 @@ btn1.ImageDrawables(help);
 
  == Sprite Sheets with ImageSprites ==
 
-TBD soon.
+With an ImageSprite, the frames get loaded in the order they show up in the JSON data file. 
 
+{{{
+
+// This will return a string arraylist of the filenames in the sprite sheet.
+// The index of each item in the list corresponds to the frame number.
+// This allows you to change which sprite is in which frame. Reorder
+// the list how you want, then use setFrameOrder with the reordered list.
+ArrayList<String> files = helper.frameOrder();
+// Reorder the list how you want
+helper.setFrameOrder(files);
+
+// This tells the ImageSprite to use the sprite sheet helper for it's
+// images.
+sprite.SetSpriteSheetHelper(helper);
+
+}}}
