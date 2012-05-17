@@ -2,7 +2,7 @@
 
 = Multiple Screens =
 
-*UPDATE: You can check out this tutorial which shows a simple project with two screens: http://www.youtube.com/watch?v=Tdpdq4sc5i0
+UPDATE: You can check out this tutorial which shows a simple project with two screens: http://www.youtube.com/watch?v=Tdpdq4sc5i0
 
 Working with multiple screens is actually pretty easy. Each "screen" is simply a Form. So, if you want another screen, create a new Form.
 
