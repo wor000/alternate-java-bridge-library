@@ -2,9 +2,13 @@
 
 = Multiple Screens =
 
+*UPDATE: You can check out this tutorial which shows a simple project with two screens: http://www.youtube.com/watch?v=Tdpdq4sc5i0
+
 Working with multiple screens is actually pretty easy. Each "screen" is simply a Form. So, if you want another screen, create a new Form.
 
 *Note: In order for this new form to run, you must declare it in your Android Manifest. If you don't, you'll get a Force Close when you try to start it.*
+
+*Note Pt2: The above note only applies if you did NOT use the right click option to create a New Form. This is handled automatically when you use that option.*
 
 == How Do I start the next screen? ==
 
