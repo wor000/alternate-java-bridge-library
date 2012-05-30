@@ -1,0 +1,91 @@
+#summary A brief overview of a FormService
+
+= FormService =
+
+A FormService is similar to a Form. The difference is that a FormService can't do anything with the UI. Services run in the background, so they aren't tied to a Form's lifecycle.
+
+If your app needs to process anything whether the user is in your app or not, then you will need a FormService.
+
+
+== Basic Use ==
+
+For basic use of a service, it works very closely to how you setup a Form.
+
+{{{
+package com.xiledsystems.examples;
+
+import android.content.Intent;
+import com.xiledsystems.AlternateJavaBridgelib.components.Component;
+import com.xiledsystems.AlternateJavaBridgelib.components.HandlesEventDispatching;
+import com.xiledsystems.AlternateJavaBridgelib.components.events.EventDispatcher;
+import com.xiledsystems.AlternateJavaBridgelib.components.altbridge.FormService;
+
+public class NewFormService extends FormService implements HandlesEventDispatching {
+
+	// Declare global variables here 
+
+    
+    
+    // This method is run when this FormService (service) is first loaded. Whatever is in this method
+    // runs once upon loading. If the service receives a start command, and it's already running, this
+    // method is not run. This is where you want to instantiate your global components.     
+    void $define() {
+ 		    
+ 		 // This registers the onStartCommand event. This is run whenever the service receives
+ 		 // a call to start. This event gets thrown when the service receives an intent to
+ 		 // start, and the service is already started.
+         EventDispatcher.registerEventForDelegation(this, "startcommand", "onStartCommand");
+    }
+    
+    @Override
+    public boolean dispatchEvent(Component component, String id, String eventName, Object[] args) {
+        	
+        if (component.equals(this) && eventName.equals("onStartCommand")) {
+        	onStart(args[0]);
+        	return true;
+        }        
+    	return false;
+   	 }
+   	 
+   	 // This allows you to do stuff when the service receives a new intent to start
+   	 // The intent is passed into this method, so you can pass data to the service
+   	 // from a Form.
+   	 private void onStart(Object intent1) {
+   	 	Intent intent = (Intent) intent1;
+   	 	
+   	 }   	 
+   	
+}
+}}}
+
+Very similar, but you can see some differences already. Like a Form, when the FormService is launched, it runs the $define method. However, services don't stack like Forms do (you can't have the same FormService running more than once, unlike Forms - you can launch the same Form multiple times, and they will all be running in memory). Instead, what a FormService does, is to throw the onStartCommand event. This method gets thrown when the service is started, and it has already been started. This gives you a oneway communication between a Form and FormService. When you want to send a data to the service from a Form, add the data to the intent, then start the service again. Then, in the FormService's onStartCommand, you can retrieve the data from the intent.
+
+Form: (Send "This is a test" to the service)
+{{{
+Intent intent = new Intent(this, FormServiceExample.class);
+intent.putExtra("Test", "This is a test");
+startService(intent);
+}}}
+
+FormService: (In the onStart method, we check the intent to see if it
+contains the "Test" value. If it does, then get the string provided.)
+{{{
+private void onStart(Object intent1) {
+
+      Intent intent = (Intent) intent1;
+      if (intent.hasExtra("Test")) {
+          String message = intent.getStringExtra("Test");
+          // Do something to respond to the communication
+      }
+}
+}}}
+You can use any non-visible component in a service, and that works the same way it does in a Form (declare your global, then instantiate in $define, then register the events you wish to capture, then capture them in dispatchEvent). These are things like Sound, Player, Web, Clock, ThreadTimer, etc.
+You can also open other Form/FormServices the same way you would in a Form.
+
+== Binding a FormService ==
+
+There may be times where you need to communicate with your FormService a lot, and need two way communication. In this case, you will want your activity to "bind" to the service. This will allow you to send a message to the currently bound activity. The other thing it allows you to do, is to run methods within your FormService.
+
+
+
+More to come on this later.
