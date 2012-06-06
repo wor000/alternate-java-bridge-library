@@ -32,8 +32,7 @@ public class NewFormService extends FormService implements HandlesEventDispatchi
     void $define() {
  		    
  		 // This registers the onStartCommand event. This is run whenever the service receives
- 		 // a call to start. This event gets thrown when the service receives an intent to
- 		 // start, and the service is already started.
+ 		 // a call to start. 
          EventDispatcher.registerEventForDelegation(this, "startcommand", "onStartCommand");
     }
     
