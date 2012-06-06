@@ -57,7 +57,7 @@ public class NewFormService extends FormService implements HandlesEventDispatchi
 }
 }}}
 
-Very similar, but you can see some differences already. Like a Form, when the FormService is launched, it runs the $define method. However, services don't stack like Forms do (you can't have the same FormService running more than once, unlike Forms - you can launch the same Form multiple times, and they will all be running in memory). Instead, what a FormService does, is to throw the onStartCommand event. This method gets thrown when the service is started, and it has already been started. This gives you a oneway communication between a Form and FormService. When you want to send a data to the service from a Form, add the data to the intent, then start the service again. Then, in the FormService's onStartCommand, you can retrieve the data from the intent.
+Very similar, but you can see some differences already. Like a Form, when the FormService is launched, it runs the $define method. However, services don't stack like Forms do (you can't have the same FormService running more than once, unlike Forms - you can launch the same Form multiple times, and they will all be running in memory). Instead, what a FormService does, is to throw the onStartCommand event. This method gets thrown when the service is started by the startService method. This gives you a oneway communication between a Form and FormService. When you want to send a data to the service from a Form, add the data to the intent, then start the service again. Then, in the FormService's onStartCommand, you can retrieve the data from the intent.
 
 Form: (Send "This is a test" to the service)
 {{{
