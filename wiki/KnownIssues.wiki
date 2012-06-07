@@ -2,7 +2,8 @@
 
 = Known Issues =
 
+  * To upgrade ADT, the Altbridge must first be uninstalled. Then re-installed afterwards.
   
-While you may see AB_DrawerSlider in the library, it's not currently working. You can drop it in your UI, but it won't display there properly, and probably won't work through code yet.
+  * While you may see AB_DrawerSlider in the library, it's not currently working. You can drop it in your UI, but it won't display there properly, and probably won't work through code yet.
 
 To submit, or see other issues, please go to the Issues link above.
