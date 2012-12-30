@@ -86,5 +86,92 @@ You can also open other Form/FormServices the same way you would in a Form.
 There may be times where you need to communicate with your FormService a lot, and need two way communication. In this case, you will want your activity to "bind" to the service. This will allow you to send a message to the currently bound activity. The other thing it allows you to do, is to run methods within your FormService.
 
 
+Binding takes a little more to get going, but not much. The issue is that when you request to bind to a service, it will bind, but it does it asynchronously, so you have to check to see if it's bound. You'll need a Clock component to do the checking. Let's say you have the MyForm class which wants to bind to MyFormService. 
+MyForm:
+{{{
+package com.example.test;
 
-More to come on this later.
+import com.xiledsystems.AlternateJavaBridgelib.components.Component;
+import com.xiledsystems.AlternateJavaBridgelib.components.HandlesEventDispatching;
+import com.xiledsystems.AlternateJavaBridgelib.components.altbridge.Clock;
+import com.xiledsystems.AlternateJavaBridgelib.components.altbridge.Form;
+import com.xiledsystems.AlternateJavaBridgelib.components.events.EventDispatcher;
+import com.xiledsystems.AlternateJavaBridgelib.components.events.Events;
+
+public class MyForm extends Form implements HandlesEventDispatching {
+
+	// Declare global variables here 
+	
+	private MyFormService service;
+	private Clock clock;
+
+	protected void $define() {
+ 		// This sets the UI designed in the graphical editor to our Form's UI.
+ 		setContentView(R.layout.myform);
+ 		
+ 		clock = new Clock(this);
+ 		clock.TimerEnabled(false);
+ 		clock.TimerInterval(25);
+    
+        // This method captures the initialization event of this Form, so we can do stuff when the
+        // screen first gets initialized.
+        EventDispatcher.registerEventForDelegation(this, "ScreenInitialization", "Initialize");
+        EventDispatcher.registerEventForDelegation(this, "clockfiredevent", Events.TIMER);
+    
+    }
+    
+	@Override
+    public boolean dispatchEvent(Component component, String id, String eventName, Object[] args) {
+    
+    	if (component.equals(this) && eventName.equals("Initialize")) {
+   			screenInitialized();
+    		return true;
+    	}
+    	if (component.equals(clock) && eventName.equals(Events.TIMER)) {
+   			clockFired();
+    		return true;
+    	}
+    	return false;
+   	}
+   	
+	private void clockFired() {
+		// boundService is what you need to check. If this is not
+		// null, then the service has been bound. You can then cast
+		// boundService to MyFormService so you can access methods
+		// in MyFormService from this Form. We also shut off the clock
+		// once the service has been bound.
+		if (boundService != null) {
+			service = (MyFormService) boundService;
+			clock.TimerEnabled(false);
+		}
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		// Start the process to bind to the service
+		BindToService(MyFormService.class);
+		// Start a clock to check to see when the service has been
+		// bound.
+		clock.TimerEnabled(true);
+	}
+					
+	private void screenInitialized() {
+   	 	// This method is run when the screen is initialized, and reports a valid width/height. 
+   	 
+   	}
+   	
+	@Override
+	public void onStop() {
+		super.onStop();
+		// This will unbind the service when the Form loses focus. Services are
+		// automatically unbound when a Form is destroyed, but if you are going
+		// to have multiple Forms binding to a service, it's best to unbind when
+		// a Form loses focus, so there's only ever one Form bound to a service
+		// at any time.
+		UnBindService();
+	}
+	
+	
+}
+}}}
